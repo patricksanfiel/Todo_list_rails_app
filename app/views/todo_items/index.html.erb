@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todo Items<i class="fa fa-check-square-o" aria-hidden="true"></i></h1>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Due</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_items.each do |todo_item| %>
+      <tr>
+        <td class="userinput"><%= todo_item.description %></td>
+        <td class="userinput"><%= todo_item.due %></td>
+        <td class="userinput"><%= todo_item.location %></td>
+        <td><%= link_to 'Show', todo_item, class:"btn btn-outline-dark" %></td>
+        <td><%= link_to 'Edit', edit_todo_item_path(todo_item), class:"btn btn-outline-dark" %></td>
+        <td><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-dark" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Todo Item', new_todo_item_path, class:"btn btn-secondary btn-lg btn-block" %>
+<%= image_tag 'inkwell.png', id:"inkwell" %>
